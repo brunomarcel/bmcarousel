@@ -84,4 +84,4 @@ bmcarousel.start({
 });</code>
 </pre>
 
-<a href="https://rawgithub.com/brunomarcel/bmcarousel/master/index.html" target="_blank">Ver o bmcarousel funcionando.</a>
+<a href="https://rawgithub.com/brunomarcel/bmcarousel/master/index.html" target="_blank">Ver o bmcarousel funcionando com mais de 1 carousel na página.</a>
