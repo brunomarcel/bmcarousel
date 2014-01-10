@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		ul, li{
+			margin: 0;
+			padding: 0
+		}
+		.ulCarousel > li,
+		.ulCarousel2 > li{
+			float: left; /* ou display: inline; */
+			list-style: none;
+			display: none;
+		}
+		
+	</style>
+
+</head>
+<body>
+	<ul class="ulCarousel">
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+	</ul>
+
+	<ul class="ulCarousel2">
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+		<li><img src="imgs/car.jpg" alt=""></li>
+	</ul>
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="libs/bmcarousel.min.js"></script>
+	<script>
+		$(function(){
+			// Inicia o Carousel
+		    bmcarousel.start({
+		        container   : $('.ulCarousel'),     // seletor do carousel
+		        visible     : 2,                    // quantas imagens que ficarão visíveis, por default é 3
+		        space       : 10,                   // espaço em "px" entre as imagens, por default é 10
+		        left        : 'prev',               // seta para esqueda, pode ser usada a tag "img", por default é o texto left
+		        right       : 'next',               // seta para direita, pode ser usada a tag "img", por default é o texto right
+		        qtdScroll   : 1                     // quantidade de imagens por scroll.
+		    });
+			// Inicia o Carousel
+		    bmcarousel.start({
+		        container   : $('.ulCarousel2'),     // seletor do carousel
+		        visible     : 4,                    // quantas imagens que ficarão visíveis, por default é 3
+		        space       : 20,                   // espaço em "px" entre as imagens, por default é 10
+		        left        : '<<',               // seta para esqueda, pode ser usada a tag "img", por default é o texto left
+		        right       : '>>',               // seta para direita, pode ser usada a tag "img", por default é o texto right
+		        qtdScroll   : 3                     // quantidade de imagens por scroll.
+		    });
+		})
+	</script>
+
+</body>
+</html>
