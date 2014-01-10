@@ -73,3 +73,4 @@ $(function(){
 </code>
 </pre>
 
+<a href="https://rawgithub.com/brunomarcel/bmcarousel/master/index.html" target="_blank">Ver o bmcarousel funcionando.</a>
