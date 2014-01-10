@@ -44,6 +44,31 @@ Plugin jQuery para carousel de imagens com controle parametrizado.
 })</code>
 </pre>
 
+<h2>Usando mais de 1 carousel na mesma página.</h2> 
+<pre>
+<code>$(function(){
+	// Inicia o Carousel
+	bmcarousel.start({
+		container   : $('.ulCarousel'),		// seletor do carousel
+		visible     : 2,      				// quantas imagens que ficarão visíveis, por default é 3
+		space		: 10,     				// espaço em "px" entre as imagens, por default é 10
+		left		: 'prev',   			// seta para esqueda, pode ser usada a tag "img", por default é o texto left
+		right		: 'next',   			// seta para direita, pode ser usada a tag "img", por default é o texto right
+		qtdScroll   : 1 					// quantidade de imagens por scroll.
+	});
+	
+	// Inicia o segundo Carousel
+	bmcarousel.start({
+		container   : $('.ulCarousel2'),		// seletor do segundo carousel
+		visible     : 5,      				// quantas imagens que ficarão visíveis, por default é 3
+		space		: 20,     				// espaço em "px" entre as imagens, por default é 10
+		left		: 'prev',   			// seta para esqueda, pode ser usada a tag "img", por default é o texto left
+		right		: 'next',   			// seta para direita, pode ser usada a tag "img", por default é o texto right
+		qtdScroll   : 3 					// quantidade de imagens por scroll.
+	});
+})</code>
+</pre>
+
 <h2>Evento reload</h2> 
 "reload: true" refaz toda a formatação do carousel mudando quantidade de imagens exibidas, quantidade de imagens por scroll e ajusta o espaçamento entre as imagens.
 
