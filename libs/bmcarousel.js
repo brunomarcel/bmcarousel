@@ -147,6 +147,7 @@ bmcarousel = {
 		x = def.liQtd,
 		y = 0;
 
+		console.log(def.li.children('img')[0].complete);
 		if(def.li.children('img')[0].complete){
 			def.liWidth   		 = def.li.width(),
 			def.liVisible 		 = def.p.visible || 3,
