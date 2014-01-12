@@ -31,6 +31,12 @@ bmcarousel = {
 	
 	start: function(params){
 
+		this.liWidth(params);
+		
+	},
+
+	setValues: function(params){
+
 		if(!params.reload)
 			params.container.wrap('<div class="wrapCarousel"><div class="carousel"></div></div>');	
 
@@ -43,14 +49,20 @@ bmcarousel = {
 		def.left 	  		 = def.p.left || 'left',
 		def.right 	  		 = def.p.right || 'right',
 		def.li        		 = def.container.find('li'),
-		def.liQtd     		 = def.li.length;
-		
+		def.liQtd     		 = def.li.length,
+		def.liWidth   		 = def.li.width(),
+		def.liVisible 		 = def.p.visible || 3,
+		def.space     		 = def.p.space || 10,
+		def.scroll    		 = (def.liWidth*def.liVisible) + (def.space * def.liVisible),
+		def.qtdScroll		 = (def.p.qtdScroll*def.liWidth) + (def.space*def.p.qtdScroll) || def.liWidth+def.space,
+		def.containerWidth   = (def.liWidth*def.liQtd) + (def.space * (def.liQtd - 1)),
+		def.scrollFinal      = -(def.containerWidth-def.scroll) - def.space;
 		
 		def.t.init();
 	},
 
 	init: function(){
-		def.t.liWidth();
+		def.t.format();
 	},
 
 	format: function(){
@@ -141,26 +153,14 @@ bmcarousel = {
 		});
 	},
 	
-	liWidth: function(){
-
-		var 
-		x = def.liQtd,
-		y = 0;
-
-		console.log(def.li.children('img')[0].complete);
-		if(def.li.children('img')[0].complete){
-			def.liWidth   		 = def.li.width(),
-			def.liVisible 		 = def.p.visible || 3,
-			def.space     		 = def.p.space || 10,
-			def.scroll    		 = (def.liWidth*def.liVisible) + (def.space * def.liVisible),
-			def.qtdScroll		 = (def.p.qtdScroll*def.liWidth) + (def.space*def.p.qtdScroll) || def.liWidth+def.space,
-			def.containerWidth   = (def.liWidth*def.liQtd) + (def.space * (def.liQtd - 1)),
-			def.scrollFinal      = -(def.containerWidth-def.scroll) - def.space;
-
-			def.t.format();
-		}else{
-			def.t.liWidth();
-		}
+	liWidth: function(params){
+			
+		_this = this;	
+		var img = params.container.children('li:first').children('img');
+		img.load(function(){
+			def.liWidth = img.parent().width();
+			_this.setValues(params);
+		})
 	},
 
 	reload: function(prms){
