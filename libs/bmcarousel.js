@@ -56,7 +56,7 @@ bmcarousel = {
 	},
 
 	init: function(){
-		def.t.format();
+		def.t.liWidth();
 	},
 
 	format: function(){
@@ -147,6 +147,18 @@ bmcarousel = {
 		});
 	},
 	
+	liWidth: function(){
+		var 
+		x = def.liQtd,
+		y = 0;
+		$.each(def.container.children('li'), function(key, val){
+			if($(val).children('img')[0].complete){
+				y++;
+			}	
+		});
+		y == x ? def.t.format() : def.t.liWidth();
+	},
+
 	reload: function(prms){
 
 		def.t.defineData();
