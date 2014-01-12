@@ -43,14 +43,8 @@ bmcarousel = {
 		def.left 	  		 = def.p.left || 'left',
 		def.right 	  		 = def.p.right || 'right',
 		def.li        		 = def.container.find('li'),
-		def.liQtd     		 = def.li.length,
-		def.liWidth   		 = def.li.width(),
-		def.liVisible 		 = def.p.visible || 3,
-		def.space     		 = def.p.space || 10,
-		def.scroll    		 = (def.liWidth*def.liVisible) + (def.space * def.liVisible),
-		def.qtdScroll		 = (def.p.qtdScroll*def.liWidth) + (def.space*def.p.qtdScroll) || def.liWidth+def.space,
-		def.containerWidth   = (def.liWidth*def.liQtd) + (def.space * (def.liQtd - 1)),
-		def.scrollFinal      = -(def.containerWidth-def.scroll) - def.space;
+		def.liQtd     		 = def.li.length;
+		
 		
 		def.t.init();
 	},
@@ -148,15 +142,24 @@ bmcarousel = {
 	},
 	
 	liWidth: function(){
+
 		var 
 		x = def.liQtd,
 		y = 0;
-		$.each(def.container.children('li'), function(key, val){
-			if($(val).children('img')[0].complete){
-				y++;
-			}	
-		});
-		y == x ? def.t.format() : def.t.liWidth();
+
+		if(def.li.children('img')[0].complete){
+			def.liWidth   		 = def.li.width(),
+			def.liVisible 		 = def.p.visible || 3,
+			def.space     		 = def.p.space || 10,
+			def.scroll    		 = (def.liWidth*def.liVisible) + (def.space * def.liVisible),
+			def.qtdScroll		 = (def.p.qtdScroll*def.liWidth) + (def.space*def.p.qtdScroll) || def.liWidth+def.space,
+			def.containerWidth   = (def.liWidth*def.liQtd) + (def.space * (def.liQtd - 1)),
+			def.scrollFinal      = -(def.containerWidth-def.scroll) - def.space;
+
+			def.t.format();
+		}else{
+			def.t.liWidth();
+		}
 	},
 
 	reload: function(prms){
