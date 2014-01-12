@@ -155,12 +155,21 @@ bmcarousel = {
 	
 	liWidth: function(params){
 			
+
 		_this = this;	
 		var img = params.container.children('li:first').children('img');
-		img.load(function(){
+		
+		img.one('load', function() {
 			def.liWidth = img.parent().width();
 			_this.setValues(params);
-		})
+		}).each(function() {
+			if(this.complete) $(this).load();
+		});
+
+		// img.load(function(){
+		// 	def.liWidth = img.parent().width();
+		// 	_this.setValues(params);
+		// })
 	},
 
 	reload: function(prms){
