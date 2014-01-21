@@ -157,7 +157,7 @@ bmcarousel = {
 			
 
 		_this = this;	
-		var img = params.container.children('li:first').children('img');
+		var img = params.container.children('li:first').find('img');
 		
 		img.one('load', function() {
 			def.liWidth = img.parent().width();
