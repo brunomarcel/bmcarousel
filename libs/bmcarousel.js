@@ -121,7 +121,6 @@ bmcarousel = {
 			th = $(this);
 			ctn = th.parent().find('ul');
 			var scll = ctn.attr('data-qtdscroll');
-			console.log(scll)
 			th.hasClass('leftCarousel') ? def.t.animates(ctn, scll) : def.t.animates(ctn, -scll);
 		})
 	},
